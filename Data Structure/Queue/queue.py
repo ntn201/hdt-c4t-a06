@@ -1,6 +1,7 @@
-class Stack:
-    def __init__(self):
+class Queue:
+    def __init__(self,capacity):
         self.items = []
+        self.capacity = capacity
 
     def __str__(self):
         res = ""
@@ -10,10 +11,11 @@ class Stack:
             res += str(self.items[-1])
         return res
 
-    def push(self,value):
-        self.items.append(value)
+    def insert(self,value):
+        self.items.insert(0,value)
 
-    def pop(self):
+
+    def remove(self):
         return self.items.pop()
 
     def clear(self):
@@ -21,3 +23,6 @@ class Stack:
 
     def is_empty(self):
         return self.items == []
+
+    def is_full(self):
+        return len(self.items) >= self.capacity
